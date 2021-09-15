@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.2.0/plotly.min.js" integrity="sha512-1mcKDpgPkTblxTDWIu2dsqm3etoTYQ7GhrCqvGma5M9Fz+ZSURZRhKKXeFx8FF6LOA3kMKul9yaTWOYH6b5paw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.0/numeric.min.js" integrity="sha512-cMz6L5ctMiH3S4q1A8fRge0sz1wrTvAQNRgpInfB1xw063BsJEo7dBSezfzTOt9KZoWTahKKglgxn8b6JACb1A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <link rel="stylesheet" href="styles.css">
+  <title>RSG-QM</title>
+</head>
+<body>
+
+  <section id="presentacao">
+    <div class="container-lg">
+      <div class="row justify-content-center">
+        <div class="col-10 text-center">
+          <h4>Response Surface Generator for Quadratic Models</h4>
+          <div>Tutorial Video available on YouTube: <a href="#" target="_blank">RSG-QM Web App</a> </div>
+          <div>M. Eng. Iram B. Rivas Ortiz</div>
+          <div>Ph. D. Ulises J. Jauregui Haza</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <hr/>
+
+  <section id="contenido">
+    <div class="container-lg">
+      <div class="row justify-content-between">
+        <div class="col-lg-6">
+          <div class="container-fluid">
+
+            <!-- MODEL -->
+            <div class="row mb-3">
+              <div class="col-12">
+                <h5>Z = a<sub>0</sub> + a<sub>1</sub> X + a<sub>2</sub> Y + a<sub>3</sub> X Y + a<sub>4</sub> X<sup>2</sup> + a<sub>5</sub> Y<sup>2</sup> </h5>
+              </div>
+            </div>
+
+            
+            <div class="row mb-1">
+              <h5>Constants:</h5>
+              <!-- A0 -->
+              <label for="a0" class="col-2 col-lg-2 col-form-label col-form-label-sm">a<sub>0</sub> = </label>
+              <div class="col-10 col-lg-4 mb-2">
+                <input class="form-control form-control-sm" type="text" id="a0" value="1.0">
+              </div>
+
+              <!-- A1 -->
+              <label for="a1" class="col-2 col-lg-2 col-form-label col-form-label-sm">a<sub>1</sub> = </label>
+              <div class="col-10 col-lg-4 mb-2">
+                <input class="form-control form-control-sm" type="text" id="a1" value="1.0">
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <!-- A2 -->
+              <label for="a2" class="col-2 col-lg-2 col-form-label col-form-label-sm">a<sub>2</sub> = </label>
+              <div class="col-10 col-lg-4 mb-2">
+                <input class="form-control form-control-sm" type="text" id="a2" value="1.0">
+              </div>
+
+              <!-- A3 -->
+              <label for="a3" class="col-2 col-lg-2 col-form-label col-form-label-sm">a<sub>3</sub> = </label>
+              <div class="col-10 col-lg-4 mb-2">
+                <input class="form-control form-control-sm" type="text" id="a3" value="0.0">
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <!-- A4 -->
+              <label for="a4" class="col-2 col-lg-2 col-form-label col-form-label-sm">a<sub>4</sub> = </label>
+              <div class="col-10 col-lg-4 mb-2">
+                <input class="form-control form-control-sm" type="text" id="a4" value="1.0">
+              </div>
+
+              <!-- A5 -->
+              <label for="a5" class="col-2 col-lg-2 col-form-label col-form-label-sm">a<sub>5</sub> = </label>
+              <div class="col-10 col-lg-4 mb-2">
+                <input class="form-control form-control-sm" type="text" id="a5" value="1.0">
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <h5>Intervals:</h5>
+              <!-- X MIN -->
+              <label for="xmin" class="col-2 col-lg-2 col-form-label col-form-label-sm">X<sub>min</sub> = </label>
+              <div class="col-10 col-lg-4 mb-2">
+                <input class="form-control form-control-sm" type="text" id="xmin" value="0.0">
+              </div>
+
+              <!-- X MAX -->
+              <label for="xmax" class="col-2 col-lg-2 col-form-label col-form-label-sm">X<sub>max</sub> = </label>
+              <div class="col-10 col-lg-4 mb-2">
+                <input class="form-control form-control-sm" type="text" id="xmax" value="5.0">
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <!-- Y MIN -->
+              <label for="ymin" class="col-2 col-lg-2 col-form-label col-form-label-sm">Y<sub>min</sub> = </label>
+              <div class="col-10 col-lg-4 mb-2">
+                <input class="form-control form-control-sm" type="text" id="ymin" value="0.0">
+              </div>
+
+              <!-- Y MAX -->
+              <label for="ymax" class="col-2 col-lg-2 col-form-label col-form-label-sm">Y<sub>max</sub> = </label>
+              <div class="col-10 col-lg-4 mb-2">
+                <input class="form-control form-control-sm" type="text" id="ymax" value="5.0">
+              </div>
+            </div>
+
+            <div class="row mb-1">
+              <h5>Settings:</h5>
+              <!-- X TITLE -->
+              <label for="xtitle" class="col-3 col-lg-3 col-form-label col-form-label-sm">X Title: </label>
+              <div class="col-9 col-lg-9 mb-2">
+                <input class="form-control form-control-sm" type="text" id="xtitle" value="X">
+              </div>
+            </div>
+            <div class="row mb-1">
+              <!-- Y TITLE -->
+              <label for="ytitle" class="col-3 col-lg-3 col-form-label col-form-label-sm">Y Title: </label>
+              <div class="col-9 col-lg-9 mb-2">
+                <input class="form-control form-control-sm" type="text" id="ytitle" value="Y">
+              </div>
+            </div>
+            <div class="row mb-1">
+              <!-- Z TITLE -->
+              <label for="ztitle" class="col-3 col-lg-3 col-form-label col-form-label-sm">Z Title: </label>
+              <div class="col-9 col-lg-9 mb-2">
+                <input class="form-control form-control-sm" type="text" id="ztitle" value="Z">
+              </div>
+            </div>
+
+            <!-- GRAYSCALE -->
+            <div class="row mt-1 text-nowrap">
+              <div class="input-group input-group-sm">
+                <div class="col-12 form-check">
+                  <input class="form-check-input" type="checkbox" name="gray" id="gray_color">
+                  <label class="form-check-label col-form-label-sm" for="gray_color">
+                    Enable Gray Scale
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <button class= "btn btn-sm btn-success mb-1" id="calculate">Generate</button>
+
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="monitor" id="chart"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
+  <script src="script.js"></script>
+</body>
+</html>
